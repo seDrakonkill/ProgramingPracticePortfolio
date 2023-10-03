@@ -1,0 +1,45 @@
+Look into the 'Precode' process (planning the program and needed components.
+
+
+
+
+
+
+Make a More Sophisticated, Harder to break Calculator
+
+
+Make a calculator that you can click the numbers into.
+
+Make a very basic art program.
+
+Make a deeper Textbased adventure game (USE ARRAYS)
+
+
+Make a tic tac toe program (IN CONSOLE AND IN UNITY)
+
+make a checkers program - Unity and unreal
+
+make chess program - Unity and unreal
+
+Make basic PVE FPS. - Unity and unreal
+
+Make a two player splitscreen FPS. - Unity and unreal
+
+Make a 2+ player LAN fps - whatever you can make it in buddy. You do you
+
+
+Make a console program that prints out asci art and maybe a romantic note or something.
+
+Make a Unity Program That takes in different mouse movements to cast different kinds of spells>
+
+
+Make a rougelite
+
+
+make a mario esqe game
+
+
+Find someone who can do art for you
+
+
+
