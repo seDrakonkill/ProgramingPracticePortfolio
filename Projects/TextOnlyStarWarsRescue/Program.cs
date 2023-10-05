@@ -41,7 +41,7 @@ namespace StarWarsRescue
         {
             Console.WriteLine(
                 "In a galaxy far, far away...\n\n Ahsoka Tano has crashlanded on an undiscovered planet on the edge of the galaxy." +
-                "\n\nHaving heard nothing from her, the Jedi Council decides to send you, a new Jedi Knight, to locate and rescue the duo!" +
+                "\n\nHaving heard nothing from her, the Jedi Council decides to send you, a new Jedi Knight, to locate and rescue the Jedi Padawan!" +
                 "\n\nShortly after arriving to the planet, you locate the smoldering remains of the ship she was travelling on. All signs point to a cave practically underneath their ship!" +
                 "\n\nMere seconds after you enter the cave, the ship collapses, sealing you in. Your saber ignites as you use it as a light. Ahead of you lies two paths, the first of which has the trickle of water echoing out." +
                 "\n\nThe second path seems unnaturally silent. You can sense Ahsoka within the caves. Will you take the watery path?");
