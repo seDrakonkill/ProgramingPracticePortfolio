@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Permissions;
 
 namespace TicTacToeConsole
 {
     internal class Game
     {
         static string[] board = { " ", " ", " ", " ", " ", " ", " ", " ", " " };
-        public int roundsPassed = 0; 
+        public int roundsPassed = 0;
         static public void Main()
         {
             Console.WriteLine(
@@ -29,17 +30,19 @@ namespace TicTacToeConsole
         {
             Game game = new Game();
             game.Board();
-            for (game.roundsPassed = 0; game.roundsPassed < board.Length; game.roundsPassed++) 
+            for (game.roundsPassed = 0; game.roundsPassed < board.Length; game.roundsPassed++)
             {
+                Console.WriteLine("What spot will you put this letter?");
                 int index = PlayerXorOInputSpot();
-                if (board.Contains<string>(" ")) //this doesnt specify a specific index spot, does it? No, it doesnt. Does this mean I can remove the For loop and just have the computer keep running this on repeat until the game board is out of ""s?
+
+                if (index == Array.IndexOf(board, " ", index)) //My gut says there is a more concise way to do this. If found, retype.
                 {
                     string XorO = DetermineXorO(game.roundsPassed);
                     board.SetValue(XorO, index);
                     game.Board();
                 }
                 else
-                {
+                { //Make Game retry to put the input in as opposed to just being sassy
                     Console.Clear();
                     Console.WriteLine("Tic Tac Told you to put it in right >:(");
                     Console.ReadKey();
@@ -48,10 +51,10 @@ namespace TicTacToeConsole
         }
         static string DetermineXorO(int roundsPassed)
         {
-            
+
             Console.WriteLine(roundsPassed % 2 + " Here " + roundsPassed);
-            if (roundsPassed%2 == 0/*remainder or round/2 = 0,*/ )
-            {        
+            if (roundsPassed % 2 == 0)
+            {
                 return "X";
             }
             else
@@ -69,38 +72,10 @@ namespace TicTacToeConsole
             + board[6].ToString() + "|" + board[7].ToString() + "|" + board[8].ToString());
         }
 
-        /*static string PlayerXInput()
-{
-    Console.WriteLine("Player 1 (X), Please put in your input now");
-    string playerInput = Console.ReadLine().ToString();
-    switch (playerInput)
-    {
-        case "X":
-            return playerInput;
-        case "x":
-            return playerInput;
+        //Make function to give the option to quit or restart, so game doesnt just close out
 
-        default:
-            Console.WriteLine("That is not an X.");
-            return playerInput;
-    }
-}
+        //Make function to announce winner of game once someone has won. (This might take a while???)
 
-static string PlayerOInput()
-{
-    Console.WriteLine("Player 2 (O), Please put in your input now");
-    string playerInput = Console.ReadLine().ToString();
-    switch (playerInput)
-    {
-        case "O":
-            return playerInput;
-        case "o":
-            return playerInput;
-
-        default:
-            Console.WriteLine("That is not an O.");
-            return playerInput;
-    }
-}*/
+        
     }
 }
