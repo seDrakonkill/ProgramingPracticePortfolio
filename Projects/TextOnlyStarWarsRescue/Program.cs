@@ -89,14 +89,16 @@ namespace StarWarsRescue
 
         public virtual void WentUpstream()
         {
-            Console.WriteLine(/*Game Text Goes here*/);
+            Console.WriteLine("Your steps begin to echo amongst the trickling of the river. Before long, a splashing noise starts to sound, and the air in the cave gets brighter"+
+                "\nA moment more, you see the light of day crack through the underground waterways mossy entrance. Would you like to exit?"/*Game Text Goes here*/);
+
             if (MainGame.PickPath())
             {
-                //Put Method that going Option 1 will call
+                //Put Method that going Option 1 will call (Exit cave())
             }
             else
             {
-                //Put Method that going Option 2 will call
+                BackToCaveStart();
             }
         }
 
@@ -204,6 +206,18 @@ namespace StarWarsRescue
 
         public virtual void UseForceOnCaveEntranceWithAhsoka()
         {//She has to be healed for this
+            Console.WriteLine(/*Game Text Goes here*/);
+            if (MainGame.PickPath())
+            {
+                //Put Method that going Option 1 will call
+            }
+            else
+            {
+                //Put Method that going Option 2 will call
+            }
+        }
+        public virtual void ExitCaveThroughStream()
+        {
             Console.WriteLine(/*Game Text Goes here*/);
             if (MainGame.PickPath())
             {
