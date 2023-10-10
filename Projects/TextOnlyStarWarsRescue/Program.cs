@@ -94,7 +94,7 @@ namespace StarWarsRescue
 
             if (MainGame.PickPath())
             {
-                //Put Method that going Option 1 will call (Exit cave())
+                ExitCaveThroughStream();
             }
             else
             {
@@ -103,15 +103,15 @@ namespace StarWarsRescue
         }
 
         public virtual void WentDownstream()
-        {
+        {   //Ahsoka is pinned down stream
             Console.WriteLine(/*Game Text Goes here*/);
             if (MainGame.PickPath())
             {
-                //Put Method that going Option 1 will call
+                FindAhsokaPinned(); //This is the "Will you keep going?" option
             }
             else
             {
-                //Put Method that going Option 2 will call
+                BackToCaveStart();
             }
         }
 
@@ -120,11 +120,11 @@ namespace StarWarsRescue
             Console.WriteLine(/*Game Text Goes here*/);
             if (MainGame.PickPath())
             {
-                //Put Method that going Option 1 will call
+                BackToCaveStart();
             }
             else
             {
-                //Put Method that going Option 2 will call
+                //StayInSilentCave();
             }
         }
         public virtual void BackToCaveStart()
@@ -145,11 +145,13 @@ namespace StarWarsRescue
             Console.WriteLine(/*Game Text Goes here*/);
             if (MainGame.PickPath())
             {
-                //Put Method that going Option 1 will call
+                HealAhsokaBeforeLeaving();
+                MonsterAwakens();
             }
             else
             {
-                //Put Method that going Option 2 will call
+                HealAhsokAfterLeaving();
+                MonsterAwakens();
             }
         }
 
@@ -158,7 +160,7 @@ namespace StarWarsRescue
             Console.WriteLine(/*Game Text Goes here*/);
             if (MainGame.PickPath())
             {
-                //Put Method that going Option 1 will call
+                FightMonsterTogether();
             }
             else
             {
@@ -171,7 +173,7 @@ namespace StarWarsRescue
             Console.WriteLine(/*Game Text Goes here*/);
             if (MainGame.PickPath())
             {
-                //Put Method that going Option 1 will call
+                FightMonsterAlone();
             }
             else
             {
