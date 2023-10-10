@@ -74,8 +74,8 @@ namespace StarWarsRescue
 
         public virtual void SilentCave()
         {
-            Console.WriteLine("You step down the rocky entrance, each click of your footfall seemingly louder than the last.  After a tense moment, the pathway opens up into a large cavern."+
-               "\nThe blue glow of your saber does not do much to light your way here. From further in, you notice a soft rush of air, methodical, rythmic. You're not sure what it is"+
+            Console.WriteLine("You step down the rocky entrance, each click of your footfall seemingly louder than the last.  After a tense moment, the pathway opens up into a large cavern." +
+               "\nThe blue glow of your saber does not do much to light your way here. From further in, you notice a soft rush of air, methodical, rythmic. You're not sure what it is" +
                "\nWould you like to search the previously silent cave?");
             if (MainGame.PickPath())
             {
@@ -89,7 +89,7 @@ namespace StarWarsRescue
 
         public virtual void WentUpstream()
         {
-            Console.WriteLine("Your steps begin to echo amongst the trickling of the river. Before long, a splashing noise starts to sound, and the air in the cave gets brighter"+
+            Console.WriteLine("Your steps begin to echo amongst the trickling of the river. Before long, a splashing noise starts to sound, and the air in the cave gets brighter" +
                 "\nA moment more, you see the light of day crack through the underground waterways mossy entrance. Would you like to exit?"/*Game Text Goes here*/);
 
             if (MainGame.PickPath())
@@ -124,7 +124,7 @@ namespace StarWarsRescue
             }
             else
             {
-                //StayInSilentCave();
+                StayInSilentCave();
             }
         }
         public virtual void BackToCaveStart()
@@ -132,11 +132,11 @@ namespace StarWarsRescue
             Console.WriteLine(/*Game Text Goes here*/);
             if (MainGame.PickPath())
             {
-                //Put Method that going Option 1 will call
+                WateryCave();
             }
             else
             {
-                //Put Method that going Option 2 will call
+                SilentCave();
             }
         }
 
@@ -156,15 +156,15 @@ namespace StarWarsRescue
         }
 
         public virtual void HealAhsokaBeforeLeaving()
-        {
-            Console.WriteLine(/*Game Text Goes here*/);
+        {//both paths here lead to victory.
+            Console.WriteLine(/*Game Text Goes here*/ );// You go bring her back to cave start, the monster attacks.
             if (MainGame.PickPath())
             {
                 FightMonsterTogether();
             }
             else
             {
-                //Put Method that going Option 2 will call
+                UseForceOnCaveEntranceWithAhsoka();
             }
         }
 
@@ -177,46 +177,16 @@ namespace StarWarsRescue
             }
             else
             {
-                //Put Method that going Option 2 will call
+                RetreatIntoCave();
             }
         }
 
-        public virtual void CarryAhsoka()
-        {
-            Console.WriteLine(/*Game Text Goes here*/);
-            if (MainGame.PickPath())
-            {
-                //Put Method that going Option 1 will call
-            }
-            else
-            {
-                //Put Method that going Option 2 will call
-            }
-        }
-        public virtual void UseForceOnCaveEntranceAlone()
-        {
-            Console.WriteLine(/*Game Text Goes here*/);
-            if (MainGame.PickPath())
-            {
-                //Put Method that going Option 1 will call
-            }
-            else
-            {
-                //Put Method that going Option 2 will call
-            }
-        }
+        
 
         public virtual void UseForceOnCaveEntranceWithAhsoka()
         {//She has to be healed for this
-            Console.WriteLine(/*Game Text Goes here*/);
-            if (MainGame.PickPath())
-            {
-                //Put Method that going Option 1 will call
-            }
-            else
-            {
-                //Put Method that going Option 2 will call
-            }
+            Console.WriteLine(/*Game Text Goes here*/); // Victory! No more paths needed!
+            //Can potentially put a restart function
         }
         public virtual void ExitCaveThroughStream()
         {
@@ -257,6 +227,12 @@ namespace StarWarsRescue
         public virtual void FightMonsterTogether()
         {
             Console.WriteLine(/*Game Text Goes here*/);
+            UseForceOnCaveEntranceWithAhsoka();
+        }
+
+        public virtual void StayInSilentCave()
+        {
+            Console.WriteLine(/*Game Text Goes here*/);
             if (MainGame.PickPath())
             {
                 //Put Method that going Option 1 will call
@@ -267,29 +243,44 @@ namespace StarWarsRescue
             }
         }
 
-        /*  internal class FaceArt
-          {
-              public virtual string[] Ahsoka()
-              {
-                  Console.WriteLine("%%%%%%%%########%%%%%%%%%%%%########%%%%%%%%%%%%");
+        public virtual void RetreatIntoCave()
+        {
+            Console.WriteLine(/*Game Text Goes here*/);
+            if (MainGame.PickPath())
+            {
+                WentUpstream();
+            }
+            else
+            {
+                RetreatToSilentCave();
+            }
+        }
 
-                  return new string[0];
-              }
+        public virtual void RetreatToSilentCave()
+        {
+            Console.WriteLine(/*Game Text Goes here*/);
+            if (MainGame.PickPath())
+            {
+                FightMonsterAlone();
+            }
+            else
+            {
+                HideInSilentCave();
+            }
+        }
 
-              public virtual string[] Rex()
-              {
-                  return new string[0];
-              }
-
-              public virtual string[] Anakin()
-              {
-                  return new string[0];
-              }
-
-              public virtual string[] Cody ()
-              {
-                  return new string[0];
-              }
-          }*/
+        public virtual void HideInSilentCave()
+        {
+            Console.WriteLine(/*Game Text Goes here*/);
+            if (MainGame.PickPath())
+            {
+                FightMonsterAlone();
+            }
+            else
+            {
+                Console.WriteLine(/*Ahsoka is healed. Together you kill the monster.*/);
+                FightMonsterTogether();
+            }
+        }
     }
 }
