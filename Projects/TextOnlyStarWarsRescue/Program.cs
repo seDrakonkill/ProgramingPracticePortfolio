@@ -4,8 +4,7 @@ using System.Globalization;
 namespace StarWarsRescue
 {
     internal class MainGame
-    {
-        public static int AhsokaTurnsLeft = 10;//Use this to have "You feel Ahsokas life force fade from the surroundings..." 
+    { 
         public static bool AhsokaAlive = true;
         public static bool AhsokaSaved = false;
         public static void Main()
@@ -23,15 +22,6 @@ namespace StarWarsRescue
         public static bool PickPath()
         {
             string choice = Console.ReadLine().ToString();
-            if (MainGame.AhsokaTurnsLeft <= 10 && MainGame.AhsokaTurnsLeft > 0)
-            {
-                MainGame.AhsokaTurnsLeft--;
-            }
-            else if (MainGame.AhsokaTurnsLeft == 0)
-            {
-                Console.WriteLine("You feel Ahsokas life force fade from this world...");
-                
-            }
             if (choice == "Yes" || choice == "yes" || choice == "eys" || choice == "Eys")
             { 
                 return true;
@@ -125,17 +115,17 @@ namespace StarWarsRescue
 
         public virtual void SearchSilentCave()
         {
-            Console.WriteLine("\nYou spend a moment in the cave searching. You're unable to find Ahsoka. You suspect she might be down the other path"+
+            Console.WriteLine("\nYou spend a moment in the cave searching. You're unable to find Ahsoka. You suspect she might be down the other path. However, you do find the crunched remains of many different animals"+
                 "\nWill you turn back?");
             if (MainGame.PickPath())
             {
-                BackToCaveStart();
                 MonsterAwakens();
+                BackToCaveStart();
             }
             else
             {
-                StayInSilentCave();
                 MonsterAwakens();
+                StayInSilentCave();
             }
         }
         public virtual void BackToCaveStart()
@@ -171,7 +161,7 @@ namespace StarWarsRescue
 
         public virtual void HealAhsokaBeforeLeaving()
         {//both paths here lead to victory. 
-            MainGame.AhsokaTurnsLeft += 99;
+            
             Console.WriteLine("\nYou apply medical gauze and tonic. The two of you run back to the cave entrance, wary of the noises you've heard. From the path of silence, a foul beast emerges." +
                 "\nA brown carapice, breath like death, no eyes, a bald head, four huge arms on a thick torso. Will you two fight the monster together?");// You go bring her back to cave start, the monster attacks.
             if (MainGame.PickPath())
@@ -200,8 +190,9 @@ namespace StarWarsRescue
         }
         public virtual void UseForceOnCaveEntranceWithAhsoka()
         {
-            Console.WriteLine("\nUsing the combined might of two Jedi Knights, you push the wreckage of her ship out of the way and escape onto your vessel."+
+            Console.WriteLine("\nUsing the combined might of two Jedi Knights, you push the wreckage of her ship out of the way and escape onto your vessel." +
                 "\n\nCongratulations!\n\nYou have rescued Ahsoka Tano and escaped alive!"); // Victory! No more paths needed!
+            Console.ReadKey();
         }
         public virtual void ExitCaveThroughStream()
         {
@@ -214,7 +205,6 @@ namespace StarWarsRescue
             }
             else
             {
-                MainGame.AhsokaTurnsLeft = 0;
                 Console.WriteLine("\nYour mission failed, you prepare to return to Corusant. You fear that you will have to be the one to deliver the news to Jedi Master Anakin.");
                 Console.ReadKey();
             }
@@ -293,7 +283,6 @@ namespace StarWarsRescue
             if (MainGame.PickPath())
             {
                 Console.WriteLine("\nYou quickly patch together your Jedi friend."); //Victory
-                MainGame.AhsokaTurnsLeft += 99;
                 FightMonsterTogether();
             }
             else
