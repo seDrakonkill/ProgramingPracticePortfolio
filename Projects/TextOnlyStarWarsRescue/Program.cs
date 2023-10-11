@@ -5,7 +5,9 @@ namespace StarWarsRescue
 {
     internal class MainGame
     {
-        public int AhsokaTurnsLeft = 10;//Use this to have "You feel Ahsokas life force fade from the surroundings..." 
+        public static int AhsokaTurnsLeft = 10;//Use this to have "You feel Ahsokas life force fade from the surroundings..." 
+        public static bool AhsokaAlive = true;
+        public static bool AhsokaSaved = false;
         public static void Main()
         {
             Console.WriteLine(
@@ -21,15 +23,21 @@ namespace StarWarsRescue
         public static bool PickPath()
         {
             string choice = Console.ReadLine().ToString();
-            
-            if (choice == "Yes" || choice == "yes" || choice == "eys" || choice == "Eys")
+            if (MainGame.AhsokaTurnsLeft <= 10 && MainGame.AhsokaTurnsLeft > 0)
             {
-                Console.WriteLine("You've chosen Option 1");
+                MainGame.AhsokaTurnsLeft--;
+            }
+            else if (MainGame.AhsokaTurnsLeft == 0)
+            {
+                Console.WriteLine("You feel Ahsokas life force fade from this world...");
+                
+            }
+            if (choice == "Yes" || choice == "yes" || choice == "eys" || choice == "Eys")
+            { 
                 return true;
             }
             else
             {
-                Console.WriteLine("Option 2 was selected instead");
                 return false;
             }
         }
@@ -58,8 +66,7 @@ namespace StarWarsRescue
 
         public virtual void WateryCave()
         {
-            Console.WriteLine(
-                "The water echos down the stony hallway as you walk down. The rippling noise grows with each step. After a short while, you emerge into an underground river area, lit only by your saber" +
+            Console.WriteLine("\nThe water echos down the stony hallway as you walk down. The rippling noise grows with each step. After a short while, you emerge into an underground river area, lit only by your saber" +
                 "\nThe river fades into the darkness of the cave, both upstream and downstream. Will you go upstream?");
             if (MainGame.PickPath())
             {
@@ -74,7 +81,7 @@ namespace StarWarsRescue
 
         public virtual void SilentCave()
         {
-            Console.WriteLine("You step down the rocky entrance, each click of your footfall seemingly louder than the last.  After a tense moment, the pathway opens up into a large cavern." +
+            Console.WriteLine("\nYou step down the rocky entrance, each click of your footfall seemingly louder than the last.  After a tense moment, the pathway opens up into a large cavern." +
                "\nThe blue glow of your saber does not do much to light your way here. From further in, you notice a soft rush of air, methodical, rythmic. You're not sure what it is" +
                "\nWould you like to search the previously silent cave?");
             if (MainGame.PickPath())
@@ -89,8 +96,8 @@ namespace StarWarsRescue
 
         public virtual void WentUpstream()
         {
-            Console.WriteLine("Your steps begin to echo amongst the trickling of the river. Before long, a splashing noise starts to sound, and the air in the cave gets brighter" +
-                "\nA moment more, you see the light of day crack through the underground waterways mossy entrance. Would you like to exit?"/*Game Text Goes here*/);
+            Console.WriteLine("\nYour steps begin to echo amongst the trickling of the river. Before long, a splashing noise starts to sound, and the air in the cave gets brighter" +
+                "\nA moment more, you see the light of day crack through the underground waterways mossy entrance. Would you like to exit?");
 
             if (MainGame.PickPath())
             {
@@ -103,11 +110,12 @@ namespace StarWarsRescue
         }
 
         public virtual void WentDownstream()
-        {   //Ahsoka is pinned down stream
-            Console.WriteLine(/*Game Text Goes here*/);
+        {   
+            Console.WriteLine("\nYour steps begin to clash amongst the growing speed of the river alongside you. Before long, the river turns off sharply to the right, heading further into the darkness." +
+                "\nYou can sense a familiar life force ahead... Will you head forward to check out the dark?");
             if (MainGame.PickPath())
             {
-                FindAhsokaPinned(); //This is the "Will you keep going?" option
+                FindAhsokaPinned();
             }
             else
             {
@@ -117,19 +125,22 @@ namespace StarWarsRescue
 
         public virtual void SearchSilentCave()
         {
-            Console.WriteLine(/*Game Text Goes here*/);
+            Console.WriteLine("\nYou spend a moment in the cave searching. You're unable to find Ahsoka. You suspect she might be down the other path"+
+                "\nWill you turn back?");
             if (MainGame.PickPath())
             {
                 BackToCaveStart();
+                MonsterAwakens();
             }
             else
             {
                 StayInSilentCave();
+                MonsterAwakens();
             }
         }
         public virtual void BackToCaveStart()
         {
-            Console.WriteLine(/*Game Text Goes here*/);
+            Console.WriteLine("\nYou return to the front of the cave. Will you take the watery path?");
             if (MainGame.PickPath())
             {
                 WateryCave();
@@ -142,7 +153,10 @@ namespace StarWarsRescue
 
         public virtual void FindAhsokaPinned()
         {
-            Console.WriteLine(/*Game Text Goes here*/);
+            Console.WriteLine("\nYou follow the path before you, your path now slick with water. It's not long before your feeling turns true: Ahsoka is down this path." +
+                "\nYou find the injured Jedi Knight pinned beneath some fallen rocks, half drowning in the river. It's all she can do to stay awake. You help unpin her." +
+                "\nYou have a medic kit with you here. Will you heal her here before leaving?");
+            MainGame.AhsokaSaved = true;
             if (MainGame.PickPath())
             {
                 HealAhsokaBeforeLeaving();
@@ -156,8 +170,10 @@ namespace StarWarsRescue
         }
 
         public virtual void HealAhsokaBeforeLeaving()
-        {//both paths here lead to victory.
-            Console.WriteLine(/*Game Text Goes here*/ );// You go bring her back to cave start, the monster attacks.
+        {//both paths here lead to victory. 
+            MainGame.AhsokaTurnsLeft += 99;
+            Console.WriteLine("\nYou apply medical gauze and tonic. The two of you run back to the cave entrance, wary of the noises you've heard. From the path of silence, a foul beast emerges." +
+                "\nA brown carapice, breath like death, no eyes, a bald head, four huge arms on a thick torso. Will you two fight the monster together?");// You go bring her back to cave start, the monster attacks.
             if (MainGame.PickPath())
             {
                 FightMonsterTogether();
@@ -170,7 +186,9 @@ namespace StarWarsRescue
 
         public virtual void HealAhsokAfterLeaving()
         {
-            Console.WriteLine(/*Game Text Goes here*/);
+            Console.WriteLine("\nYou carry the hurting Jedi Knight to the cave entrance, hauling her on your shoulder. As you prepare to treat her wounds, a low rumble then a roar tears through the cave"+
+                "\nFrom the shadows of the silent path jets a fearsome creature. A brown carapice, breath like death, no eyes, a bald head, four huge arms on a thick torso."+
+                "\nWill you attempt to take on the beast alone?");
             if (MainGame.PickPath())
             {
                 FightMonsterAlone();
@@ -180,72 +198,70 @@ namespace StarWarsRescue
                 RetreatIntoCave();
             }
         }
-
-        
-
         public virtual void UseForceOnCaveEntranceWithAhsoka()
-        {//She has to be healed for this
-            Console.WriteLine(/*Game Text Goes here*/); // Victory! No more paths needed!
-            //Can potentially put a restart function
+        {
+            Console.WriteLine("\nUsing the combined might of two Jedi Knights, you push the wreckage of her ship out of the way and escape onto your vessel."+
+                "\n\nCongratulations!\n\nYou have rescued Ahsoka Tano and escaped alive!"); // Victory! No more paths needed!
         }
         public virtual void ExitCaveThroughStream()
         {
-            Console.WriteLine(/*Game Text Goes here*/);
-            if (MainGame.PickPath())
+            
+            Console.WriteLine("\nYou exit through the sunlit hole in the ceiling, the gentle trickle of the river behind you.");
+            if (MainGame.AhsokaSaved)
             {
-                //Put Method that going Option 1 will call
+              Console.WriteLine("\nAlong side you, Ahsoka Tano enjoys the warm sun on this strange planet. A moment more and you two hop on your ship and head back to the Jedi Temple in Corusant.");
+              Console.ReadKey();
             }
             else
             {
-                //Put Method that going Option 2 will call
+                MainGame.AhsokaTurnsLeft = 0;
+                Console.WriteLine("\nYour mission failed, you prepare to return to Corusant. You fear that you will have to be the one to deliver the news to Jedi Master Anakin.");
+                Console.ReadKey();
             }
         }
         public virtual void MonsterAwakens()
-        {//This will Autotrigger a bit in. Will trigger early if you search cave. Monster is not supposed to be in cave, can be lost by outrunning it for two turns
-            Console.WriteLine(/*Game Text Goes here*/);
-            if (MainGame.PickPath())
-            {
-                //Put Method that going Option 1 will call
-            }
-            else
-            {
-                //Put Method that going Option 2 will call
-            }
+        {
+            Console.WriteLine("A dull roar echos through the cave system...");
+            
         }
         public virtual void FightMonsterAlone()
         {
-            Console.WriteLine(/*Game Text Goes here*/);
-            if (MainGame.PickPath())
-            {
-                //Put Method that going Option 1 will call
-            }
-            else
-            {
-                //Put Method that going Option 2 will call
-            }
+            Console.WriteLine("\nYour saber shakes slightly as you turn to face the terrible monster ahead of you. Perhaps you could beat it with Ahsoka's help, but you soon learn that facing it alone was folly..." +
+                "\nYou saber is soon knocked from your hand and before you can retrieve it, everything goes dark.\n\nYou have lost.");
+            Console.ReadKey();
         }
         public virtual void FightMonsterTogether()
         {
-            Console.WriteLine(/*Game Text Goes here*/);
+            Console.WriteLine("\nTwo more sabers ignite to join yours. A cacophany of whirs disorient the beast. It does not seem used to having a challenge for a meal." +
+                "\nBetween the two of you, quick work is made of the beast.");
             UseForceOnCaveEntranceWithAhsoka();
         }
 
         public virtual void StayInSilentCave()
-        {
-            Console.WriteLine(/*Game Text Goes here*/);
+        {//Both paths here are a loss. The game is as good as over at this point.
+            Console.WriteLine("\nYou take a moment to further search the silent cave. And in that moment, you can sense death approach. Behind you, the visage of a ghastly creature takes form on the edge of the light radiated by your saber."+
+                "\nWill you fight the beast alone?");
             if (MainGame.PickPath())
             {
-                //Put Method that going Option 1 will call
+                FightMonsterAlone();
             }
             else
             {
-                //Put Method that going Option 2 will call
+                TryToEscape();
             }
+        }
+        public virtual void TryToEscape()
+        {
+            Console.WriteLine("\nYou try to escape from the monster that has gotten between you and the door. Dash to the left, zip to the right! But alas..."+
+                "\n\nYou're not quick enough. You feel its enourmous hands take hold and hear its mouth open as you brace yourself to become its next prey"+
+                "\n\nYou have Lost.");
+            Console.ReadKey();
         }
 
         public virtual void RetreatIntoCave()
         {
-            Console.WriteLine(/*Game Text Goes here*/);
+            Console.WriteLine("\n You pick up Ahsoka and turn to dash. The monster has repositioned itself between the two caves, unsure of where you will go."+
+                "\nWill you head upstream through the watery cave?");
             if (MainGame.PickPath())
             {
                 WentUpstream();
@@ -258,7 +274,8 @@ namespace StarWarsRescue
 
         public virtual void RetreatToSilentCave()
         {
-            Console.WriteLine(/*Game Text Goes here*/);
+            Console.WriteLine("\nYou grab Ahsoka and run into the silent cave, narrowly avoiding the monsters swipe. It lets out a roar as you head into the main chamber of the silent channel, where some fallen boulders appear on the edge of the saberlight."+
+                "\nYou hear the beast coming up behind you. Will you fight the monster solo?"); 
             if (MainGame.PickPath())
             {
                 FightMonsterAlone();
@@ -271,15 +288,17 @@ namespace StarWarsRescue
 
         public virtual void HideInSilentCave()
         {
-            Console.WriteLine(/*Game Text Goes here*/);
+            Console.WriteLine("\nYou duck behind the rocks, setting Ahsoka down as gentle as you can while being quick about it. The creature enters the room, trying to find the injured jedi and her companion."+
+                "\nWill you treat Ahsoka's wounds before attempting to fight the creature?");
             if (MainGame.PickPath())
             {
-                FightMonsterAlone();
+                Console.WriteLine("\nYou quickly patch together your Jedi friend."); //Victory
+                MainGame.AhsokaTurnsLeft += 99;
+                FightMonsterTogether();
             }
             else
             {
-                Console.WriteLine(/*Ahsoka is healed. Together you kill the monster.*/);
-                FightMonsterTogether();
+                FightMonsterAlone();//Loss
             }
         }
     }
