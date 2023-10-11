@@ -72,10 +72,19 @@ namespace TicTacToeConsole
             + board[6].ToString() + "|" + board[7].ToString() + "|" + board[8].ToString());
         }
 
-        //Make function to give the option to quit or restart, so game doesnt just close out
+        public static void Restart()
+        {
+
+            for (int index = 0; index < board.Length; index++)
+            {
+                board.SetValue(" ", index);
+            }
+
+            RunGame();
+        } 
 
         //Make function to announce winner of game once someone has won. (This might take a while???)
 
-        
+
     }
 }
