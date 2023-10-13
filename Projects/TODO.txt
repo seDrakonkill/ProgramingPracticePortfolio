@@ -5,10 +5,7 @@ Look into the 'Precode' process (planning the program and needed components.
 
 
 
-Make a More Sophisticated, Harder to break Calculator
-
-
-Make a calculator that you can click the numbers into.
+Make a More Sophisticated, Harder to break Calculator-Make a calculator that you can click the numbers into.
 
 Make a very basic art program.
 
