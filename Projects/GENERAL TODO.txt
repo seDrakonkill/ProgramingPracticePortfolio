@@ -10,6 +10,7 @@ Make a More Sophisticated, Harder to break Calculator-Make a calculator that you
 Make a very basic art program.
 
 Maybe a graphing program to show the functions displayed that the calculator runs?
+Make a More Sophisticated, Harder to break Calculator -Make a calculator that you can click the numbers into. (.NET UI?)
 
 Make a deeper Textbased adventure game (USE ARRAYS) (no)
 
@@ -26,13 +27,14 @@ Make a two player splitscreen FPS. - Unity and unreal
 
 Make a 2+ player LAN fps - whatever you can make it in buddy. You do you
 
+Make a 2 player overthenet games for you and tim (MAKE SURE ITS SECURE)
 
 Make a console program that prints out asci art and maybe a romantic note or something.
 
 Make a Unity Program That takes in different mouse movements to cast different kinds of spells>
 
 
-Make a rougelite
+Make a rougelite - Starwars themed/rip off (Bump this up in Priority)
 
 
 make a mario esqe game
