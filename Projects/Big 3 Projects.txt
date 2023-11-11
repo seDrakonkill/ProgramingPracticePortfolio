@@ -1,0 +1,12 @@
+These three projects below are to end up as the "Portfolio Projects"
+
+They are meant to be fun things to work on for practice that are showcases of different necessary skills with C#.
+
+
+
+
+Project 1. Rougelite game themed around a typical Knight, archer, and mage saving royal family (person by person), from 5 different Dragons. Save States, Procedural Generation, Class selection/Swapping.
+
+Project 2. A series of simple working programs that are useful in day to day computer operations, IE; Calculator, Simple art program, voice recording program, and a video player. 
+
+Project 3. (TBD) (Want to use SQL in this one somehow)

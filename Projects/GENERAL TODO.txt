@@ -5,14 +5,17 @@ Look into the 'Precode' process (planning the program and needed components.
 
 
 
-Make a More Sophisticated, Harder to break Calculator -Make a calculator that you can click the numbers into. (.NET UI?)
+Make a More Sophisticated, Harder to break Calculator-Make a calculator that you can click the numbers into.
 
 Make a very basic art program.
 
-Make a deeper Textbased adventure game (USE ARRAYS)
+Maybe a graphing program to show the functions displayed that the calculator runs?
+Make a More Sophisticated, Harder to break Calculator -Make a calculator that you can click the numbers into. (.NET UI?)
+
+Make a deeper Textbased adventure game (USE ARRAYS) (no)
 
 
-Make a tic tac toe program (IN CONSOLE AND IN UNITY)
+Make a tic tac toe program (AND IN UNITY)
 
 make a checkers program - Unity and unreal
 

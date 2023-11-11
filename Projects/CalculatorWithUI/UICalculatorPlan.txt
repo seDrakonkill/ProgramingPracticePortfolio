@@ -1,0 +1,21 @@
+Necessary Parts: 
+
+UI, Functional Functions, Icon
+
+Step 1. 
+	Will be learning how to make UI. I want to have it be a square window, with all the calculator number keys being different colors. There will be the basic math functions + a few more (Logs, Squares, Roots of various powers)
+	The program will have the regular maximize, minimize, close buttons. The maximize will not change the aspect ratio.
+
+Step 2. 
+	Make sure the functions can Add, Subtract, Multiply, Divide, square, square root, log. They should take 2 parameters
+	They will return a float or a double (not sure the difference as of this time). That float will be stored for use as the first variable in the next operation (assuming the user hits a function button before typing in a new number)
+
+Step 3. 
+	Make sure the buttons on the calculator work as expected. 
+
+Step 4. Make a special Icon for it, and have that open the program from the desk top.
+
+
+
+Starting with UI. 
+
