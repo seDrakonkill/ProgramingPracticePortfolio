@@ -14,3 +14,8 @@ Step 3.
 	Make sure the buttons on the calculator work as expected. 
 
 Step 4. Make a special Icon for it, and have that open the program from the desk top.
+
+
+
+Starting with UI. 
+
