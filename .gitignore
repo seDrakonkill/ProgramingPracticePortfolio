@@ -361,3 +361,16 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Ignores all PNG files. This should help me with filtering out a CRAPTON of stuff from the unity bloat
+*.png
+
+# These should ignore the specified directories in TicTacToe2
+
+/UnityProjects/TicTacToe2/Library/
+/UnityProjects/TicTacToe2/Logs/
+/UnityProjects/TicTacToe2/Packages/
+/UnityProjects/TicTacToe2/Temp/
+/UnityProjects/TicTacToe2/UserSettings/
+/UnityProjects/TicTacToe2/ProjectSettings/
+
